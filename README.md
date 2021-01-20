@@ -4,6 +4,12 @@
 
 Project full of exercises for getting into clean C++.
 
+## References
+
+ * [The C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) ([Source](https://github.com/isocpp/CppCoreGuidelines))
+ * [The Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+ * [cppreference.com](https://en.cppreference.com/w/)
+
 ## Dependencies
 
  * [GoogleTest](https://github.com/google/googletest) for testing, included as a git-submodule.
