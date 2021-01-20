@@ -10,3 +10,6 @@ cmake-build-*/
 .idea/*
 !.idea/runConfigurations/
 !.idea/codeStyles/
+
+# VSCode / VSCodium
+.vscode/
