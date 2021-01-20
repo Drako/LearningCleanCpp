@@ -9,6 +9,7 @@ Project full of exercises for getting into clean C++.
  * [The C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) ([Source](https://github.com/isocpp/CppCoreGuidelines))
  * [The Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
  * [cppreference.com](https://en.cppreference.com/w/)
+ * [Compiler Explorer](https://godbo.lt/)
 
 ## Dependencies
 
