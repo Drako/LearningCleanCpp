@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 
+#include <sstream>
+
 #include "fizzbuzz.hxx"
 
 TEST(FizzBuzzTest, returnsFizzOnDivisibleBy3) {
@@ -42,4 +44,10 @@ TEST(FizzBuzzTest, returnsStringifiedNumber) {
     EXPECT_EQ(fizzbuzz(26), "26");
     EXPECT_EQ(fizzbuzz(28), "28");
     EXPECT_EQ(fizzbuzz(29), "29");
+}
+
+TEST(FizzBuzzTest, printsFizzBuzzUpTo100) {
+    std::ostringstream out;
+    run_fizzbuzz(out);
+    EXPECT_EQ(out.str(), "");
 }

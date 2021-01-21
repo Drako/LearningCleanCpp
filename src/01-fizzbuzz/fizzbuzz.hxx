@@ -3,6 +3,7 @@
 #ifndef FIZZBUZZ_HXX
 #define FIZZBUZZ_HXX
 
+#include <iosfwd>
 #include <string>
 
 /**
@@ -20,5 +21,7 @@
  * fizzbuzz(15) -> "FizzBuzz"
  */
 std::string fizzbuzz(unsigned n);
+
+void run_fizzbuzz(std::ostream& out);
 
 #endif // FIZZBUZZ_HXX
