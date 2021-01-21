@@ -2,7 +2,7 @@
 
 #include "fizzbuzz.hxx"
 
-TEST(FizzBuzzTest, ReturnsFizzOnDivisibleBy3) {
+TEST(FizzBuzzTest, returnsFizzOnDivisibleBy3) {
     EXPECT_EQ(fizzbuzz(3), "Fizz");
     EXPECT_EQ(fizzbuzz(6), "Fizz");
     EXPECT_EQ(fizzbuzz(9), "Fizz");
@@ -13,19 +13,19 @@ TEST(FizzBuzzTest, ReturnsFizzOnDivisibleBy3) {
     EXPECT_EQ(fizzbuzz(27), "Fizz");
 }
 
-TEST(FizzBuzzTest, ReturnsBuzzOnDivisibleBy5) {
+TEST(FizzBuzzTest, returnsBuzzOnDivisibleBy5) {
     EXPECT_EQ(fizzbuzz(5), "Buzz");
     EXPECT_EQ(fizzbuzz(10), "Buzz");
     EXPECT_EQ(fizzbuzz(20), "Buzz");
     EXPECT_EQ(fizzbuzz(25), "Buzz");
 }
 
-TEST(FizzBuzzTest, ReturnsFizzBuzzOnDivisibleBy15) {
+TEST(FizzBuzzTest, returnsFizzBuzzOnDivisibleBy15) {
     EXPECT_EQ(fizzbuzz(15), "FizzBuzz");
     EXPECT_EQ(fizzbuzz(30), "FizzBuzz");
 }
 
-TEST(FizzBuzzTest, ReturnsStringifiedNumber) {
+TEST(FizzBuzzTest, returnsStringifiedNumber) {
     EXPECT_EQ(fizzbuzz(1), "1");
     EXPECT_EQ(fizzbuzz(2), "2");
     EXPECT_EQ(fizzbuzz(4), "4");
