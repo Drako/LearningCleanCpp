@@ -21,4 +21,6 @@
  */
 std::string fizzbuzz(unsigned n);
 
+int add(int a, int b);
+
 #endif // FIZZBUZZ_HXX

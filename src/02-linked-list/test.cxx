@@ -28,6 +28,7 @@ TEST(LinkedListTest, test) {
     std::vector<int> const expected{ 1337, 42, 23 };
     std::vector<int> actual;
     actual.reserve(3);
-    numbers.for_each([&actual](int n) { actual.push_back(n); });
+    numbers.for_each(23);
+    //numbers.for_each([&actual](int n) { actual.push_back(n); });
     EXPECT_EQ(expected, actual);
 }
