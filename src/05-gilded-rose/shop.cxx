@@ -10,55 +10,61 @@ std::vector<Item> const& Shop::getItems() const {
 
 void Shop::updateQuality() {
     for (auto& item : items) {
-        if (item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert") {
-            if (item.quality > 0) {
-                if (item.name != "Sulfuras, Hand of Ragnaros") {
-                    --item.quality;
-                }
-            }
-        }
-        else {
-            if (item.quality < 50) {
-                ++item.quality;
-
-                if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
-                    if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            ++item.quality;
-                        }
-                    }
-
-                    if (item.sellIn < 6) {
-                        if (item.quality < 50) {
-                            ++item.quality;
-                        }
-                    }
-                }
-            }
+        if (isLegendary(item)) {
+            continue;
         }
 
-        if (item.name != "Sulfuras, Hand of Ragnaros") {
-            --item.sellIn;
-        }
+        --item.sellIn;
 
+        item.quality = clampQuality(
+            item.quality + qualityDirection(item) * qualityFactor(item)
+        );
+    }
+}
+
+bool Shop::isLegendary(Item const& item) {
+    return item.name == "Sulfuras, Hand of Ragnaros";
+}
+
+bool Shop::isAged(Item const& item) {
+    return item.name == "Aged Brie";
+}
+
+bool Shop::isBackstagePass(Item const& item) {
+    return item.name == "Backstage passes to a TAFKAL80ETC concert";
+}
+
+int Shop::qualityDirection(Item const& item) {
+    if (isAged(item) || isBackstagePass(item)) {
+        return 1;
+    }
+    else {
+        return -1;
+    }
+}
+
+int Shop::qualityFactor(Item const& item) {
+    if (isBackstagePass(item)) {
         if (item.sellIn < 0) {
-            if (item.name != "Aged Brie") {
-                if (item.name != "Backstage passes to a TAFKAL80ETC concert") {
-                    if (item.quality > 0) {
-                        if (item.name != "Sulfuras, Hand of Ragnaros") {
-                            --item.quality;
-                        }
-                    }
-                }
-                else {
-                    item.quality -= item.quality;
-                }
-            }
-            else {
-                if (item.quality < 50) {
-                    ++item.quality;
-                }
-            }
+            return -50;
+        }
+        else if (item.sellIn < 5) {
+            return 3;
+        }
+        else if (item.sellIn < 10) {
+            return 2;
         }
     }
+    else if (item.sellIn < 0) {
+        return 2;
+    }
+    
+    return 1;
+}
+
+int Shop::clampQuality(int const quality) {
+    return
+        quality < 0 ? 0 :
+        quality > 50 ? 50 :
+        quality;
 }
