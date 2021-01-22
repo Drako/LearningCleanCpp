@@ -11,11 +11,11 @@ namespace gol {
     struct Renderer;
 
     class GameOfLife {
-        World world{};
+        World& world;
         Renderer& renderer;
 
     public:
-        GameOfLife(Renderer& renderer);
+        GameOfLife(World& world, Renderer& renderer);
 
         /**
          * Calculate the next state of the world.

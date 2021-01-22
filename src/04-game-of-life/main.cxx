@@ -7,8 +7,16 @@
 using namespace gol;
 
 int main() {
+    World world{
+        {39, 7}, {40, 7}, {41, 7},
+        {39, 8}, {41, 8},
+        {39, 9}, {41, 9},
+        {39, 11}, {41, 11},
+        {39, 12}, {41, 12},
+        {39, 13}, {40, 13}, {41, 13},
+    };
     StreamRenderer renderer{ std::cout, 80u, 25u };
-    GameOfLife gol{ renderer };
+    GameOfLife gol{ world, renderer };
 
     std::cout
         << "Welcome to Game of Life!\n"
@@ -18,7 +26,10 @@ int main() {
 
     for (;;) {
         gol.render();
-        std::cout << "--------------------------------------------" << std::endl;
+        std::cout <<
+            "--------------------------------------------"
+            "--------------------------------------------"
+            << std::endl;
 
         std::string input;
         std::getline(std::cin, input);
