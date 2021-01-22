@@ -7,8 +7,9 @@
 using namespace gol;
 
 int main() {
+    World world{};
     StreamRenderer renderer{ std::cout, 80u, 25u };
-    GameOfLife gol{ renderer };
+    GameOfLife gol{ world, renderer };
 
     std::cout
         << "Welcome to Game of Life!\n"

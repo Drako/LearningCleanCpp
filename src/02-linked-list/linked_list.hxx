@@ -15,7 +15,7 @@ namespace exercise {
          * Add the given [value] to the list.
          */
         inline void push(ValueType const& value) {
-            // TODO: implement
+
         }
 
         /**

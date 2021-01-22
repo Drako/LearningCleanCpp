@@ -15,6 +15,16 @@ namespace gol {
     }
 
     void StreamRenderer::render(World const& world) {
-        // TODO: implement
+        std::string output((width + 1) * height, ' ');
+        for (unsigned y = 0; y < height; ++y) {
+            output[y * (width + 1) + width] = '\n';
+        }
+        for (auto const& cell : world.cells) {
+            int x, y;
+            std::tie(x, y) = cell;
+            if (x >= 0 && x < width && y >= 0 && y < height)
+                output[y * (width + 1) + x] = 'X';
+        }
+        target << output;
     }
 }
